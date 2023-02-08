@@ -6,15 +6,15 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-  const hashMap = {};
+  const map = {};
 
   for (let i = 0; i < nums.length; i++) {
     const currNum = nums[i];
     const numToFind = target - currNum;
-    if (hashMap[numToFind] >= 0) {
-      return [hashMap[numToFind], i];
+    if (map[numToFind] >= 0) {
+      return [map[numToFind], i];
     } else {
-      hashMap[currNum] = i;
+      map[currNum] = i;
     }
   }
 };
