@@ -1,22 +1,14 @@
-function isIsomorsphic(s, t) {
-  if (s.length !== t.length) return false;
+function isSubsequence(s, t) {
+  let sp = 0,
+    tp = 0;
 
-  //creating two objs
-  let sMap = {};
-  let tMap = {};
-  let cur = 0;
-
-  while (cur < s.length) {
-    if (sMap[s[cur]] !== tMap[t[cur]]) {
-      return false;
+  while (sp < s.length && tp < t.length) {
+    if (s[sp] === t[tp]) {
+      sp++;
+      tp++;
+    } else {
+      tp++;
     }
-    sMap[s[cur]] = cur + 1;
-    tMap[t[cur]] = cur + 1;
-    cur++;
   }
-
-  return true;
+  return sp === s.length;
 }
-
-console.log(isIsomorsphic("egg", "add"));
-console.log(isIsomorsphic("elf", "foo"));
