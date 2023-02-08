@@ -1,6 +1,6 @@
 function isSubsequence(s, t) {
-  let sp = 0,
-    tp = 0;
+  let sp = 0;
+  let tp = 0;
 
   while (sp < s.length && tp < t.length) {
     if (s[sp] === t[tp]) {
