@@ -1,19 +1,16 @@
 function firstUniqueChar(s) {
-  let map = new Map();
+  let map = {};
 
-  //traversing string
   for (let i = 0; i < s.length; i++) {
-    let curr = s[i];
-    if (map.has(curr)) {
-      map.set(curr, map.get(curr + 1));
+    if (map[s[i]]) {
+      map[s[i]]++;
     } else {
-      map.set(curr, 1);
+      map[s[i]] = 1;
     }
   }
 
   for (let i = 0; i < s.length; i++) {
-    let curr = s[i];
-    if (map.get(curr) === 1) return i;
+    if (map[s[i]] === 1) return i;
   }
 
   return -1;
