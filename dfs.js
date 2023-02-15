@@ -1,17 +1,28 @@
-//iterative solution for dfs
+//recursive dfs
 
 function dfs(root) {
-  if (root === null) return [];
+  if (root === null) return root;
 
-  const res = [];
-  const stack = [root];
-  while (stack.length > 0) {
-    const curr = stack.pop();
-    res.push(curr);
+  const left = dfs(root.left);
+  const right = dfs(root.right);
 
-    if (curr.right) stack.push(curr.right);
-    if (curr.left) stack.push(curr.left);
-  }
-
-  return res;
+  return [root.val, ...left, ...right];
 }
+
+// //iterative solution for dfs
+
+// function dfs(root) {
+//   if (root === null) return [];
+
+//   const res = [];
+//   const stack = [root];
+//   while (stack.length > 0) {
+//     const curr = stack.pop();
+//     res.push(curr);
+
+//     if (curr.right) stack.push(curr.right);
+//     if (curr.left) stack.push(curr.left);
+//   }
+
+//   return res;
+// }
