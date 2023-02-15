@@ -2,6 +2,8 @@ const bfs = (root) => {
   if (rooot === null) return root;
 
   const queue = [];
+  queue.push(this.root);
+
   while (queue.length) {
     const curr = queue.shift();
     console.log(curr);
